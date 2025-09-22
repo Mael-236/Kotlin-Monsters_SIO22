@@ -1,10 +1,11 @@
 package org.example.monstre
+import java.io.File
 
 class EspeceMonstre (
     /* indice des monstres */ var id : Int,
-    /* */ var nom: String,
-    /* */ var type: String,
-    /* */ val baseAttaque: Int,
+    /* nom du monstre */ var nom: String,
+    /* type du monstre */ var type: String,
+    /* degats attaque de base */ val baseAttaque: Int,
     /* */ val baseDefense: Int,
     /* */ val baseVitesse: Int,
     /* */ val baseAttaqueSpe: Int,
