@@ -1,6 +1,8 @@
 package org.example
 import org.example.dresseur.Entraineur
+import org.example.monde.Zone
 import org.example.monstre.EspeceMonstre
+import org.example.monstre.IndividuMonstre
 
 fun changeCouleur(message: String, couleur:String=""): String {
     val reset = "\u001B[0m"
@@ -59,7 +61,29 @@ val especeGalum = EspeceMonstre(id = 13, nom = "Galum", type = "Minéral",
     modPv = 13.0, description = "Golem ancien de pierre, yeux lumineux en garde.",
     particularites = "Peut rester immobile des heures comme une statue.", caractères = "Sérieux, stoïque, fiable")
 
+val route1 = Zone(
+    id = 1, nom = "Azuria", expZone = 46,
+    especesMonstres = mutableListOf(especeLaoumi, especeSpringleaf)
+)
+
+val route2 = Zone(
+    id = 2, nom = "Bourg Palette", expZone = 82,
+    especesMonstres = mutableListOf(especeGalum, especeAquamy)
+)
+
+val route3 = Zone(
+    id = 3, nom = "Céladopole", expZone = 105,
+    especesMonstres = mutableListOf(especeFlamkip, especeBugsyface, especeLaoumi)
+)
+
 fun main() {
 
-    
+    route1.zoneSuivante = route2
+    route2.zonePrecedante = route1
+    route2.zoneSuivante = route3
+    route3.zonePrecedante = route2
+    val monstre1 = IndividuMonstre(id = 1, nom = "springleaf", espece = especeSpringleaf, expInit = 1500.0)
+    val monstre2 = IndividuMonstre(id = 2, nom = "flamkip",espece = especeFlamkip, expInit = 1500.0)
+    val monstre3 = IndividuMonstre( id = 3, nom = "aquamy", espece = especeAquamy, expInit = 1500.0)
+    monstre2.attaquer(monstre3)
 }
