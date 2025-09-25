@@ -1,5 +1,6 @@
 package org.example
 import org.example.dresseur.Entraineur
+import org.example.item.Badge
 import org.example.monde.Zone
 import org.example.monstre.EspeceMonstre
 import org.example.monstre.IndividuMonstre
@@ -82,8 +83,10 @@ fun main() {
     route2.zonePrecedante = route1
     route2.zoneSuivante = route3
     route3.zonePrecedante = route2
-    val monstre1 = IndividuMonstre(id = 1, nom = "springleaf", espece = especeSpringleaf, expInit = 1500.0)
-    val monstre2 = IndividuMonstre(id = 2, nom = "flamkip",espece = especeFlamkip, expInit = 1500.0)
-    val monstre3 = IndividuMonstre( id = 3, nom = "aquamy", espece = especeAquamy, expInit = 1500.0)
+    val monstre1 = IndividuMonstre(id = 1, nom = "springleaf", espece = especeSpringleaf, expInit = 0.0)
+    val monstre2 = IndividuMonstre(id = 2, nom = "flamkip",espece = especeFlamkip, expInit = 0.0)
+    val monstre3 = IndividuMonstre( id = 3, nom = "aquamy", espece = especeAquamy, expInit = 0.0)
     monstre2.attaquer(monstre3)
+    monstre1.afficheDetail()
+    val badge_Eclaire = Badge(1, "Badge Eclaire", "Pour avoir battu l'arène de Céladopole.", Maxime)
 }

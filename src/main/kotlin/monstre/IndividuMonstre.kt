@@ -1,6 +1,7 @@
 package org.example.monstre
 
 import org.example.dresseur.Entraineur
+import kotlin.math.max
 import kotlin.math.pow
 import kotlin.random.Random
 
@@ -89,6 +90,46 @@ class IndividuMonstre(
         var pvAvant = cible.pv
         cible.pv -= degatTotal
         var pvApres = cible.pv
-        println("[nom attaquant] inflige (pvAvant - pvApres) degats a [cible.nom]")
+        println("$nom inflige ($pvAvant -> $pvApres) degats a ${cible.nom}")
+    }
+
+    fun renommer() {
+        print("Renommer ${this.nom} ? ")
+        var nouveauNom = readln().toString()
+        if (nouveauNom != "") {
+            this.nom = nouveauNom
+            println("Le monstre est renommé ${this.nom}")
+        }
+        else {
+            println("Le monstre se nomme toujours ${this.nom}")
+        }
+    }
+
+    fun afficheDetail() {
+        var art = espece.afficheArt()
+        println(art)
+        val artLines = art.lines()
+
+        val details = listOf(
+            "nom = $nom",
+            "niveau = $niveau",
+            "PV = $pv",
+            "stats = ${listOf("atq : ${espece.baseAttaque}, Def : ${espece.baseDefense}, Vit : ${espece.baseVitesse}, AtqSpe : ${espece.baseAttaqueSpe}, DefSpe : ${espece.baseDefenseSpe}")}"
+            )
+//        val maxArtWidth = details.maxByOrNull { it.length }
+//        val maxLines = max(artLines.size,details.size)
+//        var chaine = ""
+//        for (i in 0 until maxLines) {
+//            var ligne= ""
+//            if (i < artLines.size) {
+//                ligne = artLines[i]
+//            }
+//            if(i < details.size){
+//                ligne +="     "+details[i]
+//            }
+//            chaine+=ligne
+//        }
+//        println(chaine)
+        println(details)
     }
 }
