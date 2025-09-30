@@ -114,7 +114,7 @@ class IndividuMonstre(
             "nom = $nom",
             "niveau = $niveau",
             "PV = $pv",
-            "stats = ${listOf("atq : ${espece.baseAttaque}, Def : ${espece.baseDefense}, Vit : ${espece.baseVitesse}, AtqSpe : ${espece.baseAttaqueSpe}, DefSpe : ${espece.baseDefenseSpe}")}"
+            "stats = ${listOf("atq : ${espece.baseAttaque}, Def : ${espece.baseDefense}, Vit : ${espece.baseVitesse},\n AtqSpe : ${espece.baseAttaqueSpe}, DefSpe : ${espece.baseDefenseSpe}")}"
             )
 //        val maxArtWidth = details.maxByOrNull { it.length }
 //        val maxLines = max(artLines.size,details.size)
